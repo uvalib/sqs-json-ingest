@@ -68,15 +68,15 @@ func LoadConfiguration() *ServiceConfig {
 
 	var cfg ServiceConfig
 
-	cfg.InQueueName = ensureSetAndNonEmpty("VIRGO4_DOC_INGEST_IN_QUEUE")
-	cfg.OutQueueName = ensureSetAndNonEmpty("VIRGO4_DOC_INGEST_OUT_QUEUE")
-	cfg.CacheQueueName = envWithDefault("VIRGO4_DOC_INGEST_CACHE_QUEUE", "")
-	cfg.PollTimeOut = int64(envToInt("VIRGO4_DOC_INGEST_QUEUE_POLL_TIMEOUT"))
-	cfg.DataSourceName = ensureSetAndNonEmpty("VIRGO4_DOC_INGEST_DATA_SOURCE")
-	cfg.MessageBucketName = ensureSetAndNonEmpty("VIRGO4_SQS_MESSAGE_BUCKET")
-	cfg.DownloadDir = ensureSetAndNonEmpty("VIRGO4_DOC_INGEST_DOWNLOAD_DIR")
-	cfg.WorkerQueueSize = envToInt("VIRGO4_DOC_INGEST_WORK_QUEUE_SIZE")
-	cfg.Workers = envToInt("VIRGO4_DOC_INGEST_WORKERS")
+	cfg.InQueueName = ensureSetAndNonEmpty("SQS_JSON_INGEST_IN_QUEUE")
+	cfg.OutQueueName = ensureSetAndNonEmpty("SQS_JSON_INGEST_OUT_QUEUE")
+	cfg.CacheQueueName = envWithDefault("SQS_JSON_INGEST_CACHE_QUEUE", "")
+	cfg.PollTimeOut = int64(envToInt("SQS_JSON_INGEST_QUEUE_POLL_TIMEOUT"))
+	cfg.DataSourceName = ensureSetAndNonEmpty("SQS_JSON_INGEST_DATA_SOURCE")
+	cfg.MessageBucketName = ensureSetAndNonEmpty("SQS_MESSAGE_BUCKET")
+	cfg.DownloadDir = ensureSetAndNonEmpty("SQS_JSON_INGEST_DOWNLOAD_DIR")
+	cfg.WorkerQueueSize = envToInt("SQS_JSON_INGEST_WORK_QUEUE_SIZE")
+	cfg.Workers = envToInt("SQS_JSON_INGEST_WORKERS")
 
 	log.Printf("[CONFIG] InQueueName          = [%s]", cfg.InQueueName)
 	log.Printf("[CONFIG] OutQueueName         = [%s]", cfg.OutQueueName)

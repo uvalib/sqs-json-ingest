@@ -77,7 +77,7 @@ func constructMessage(record Record, datasource string) awssqs.Message {
 	//payload := fmt.Sprintf( xmlDocFormatter, id )
 	attributes := make([]awssqs.Attribute, 0, 4)
 	attributes = append(attributes, awssqs.Attribute{Name: awssqs.AttributeKeyRecordId, Value: record.Id()})
-	attributes = append(attributes, awssqs.Attribute{Name: awssqs.AttributeKeyRecordType, Value: awssqs.AttributeValueRecordTypeXml})
+	attributes = append(attributes, awssqs.Attribute{Name: awssqs.AttributeKeyRecordType, Value: "json"})
 	attributes = append(attributes, awssqs.Attribute{Name: awssqs.AttributeKeyRecordOperation, Value: awssqs.AttributeValueRecordOperationUpdate})
 	if len(datasource) != 0 {
 		attributes = append(attributes, awssqs.Attribute{Name: awssqs.AttributeKeyRecordSource, Value: datasource})

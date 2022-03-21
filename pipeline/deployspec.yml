@@ -23,10 +23,10 @@ phases:
 
   build:
     commands:
-      - cd $CODEBUILD_SRC_DIR/terraform-infrastructure/mandala/ecs-tasks/staging/mandala-kmassets-solr-update
+      - cd $CODEBUILD_SRC_DIR/terraform-infrastructure/mandala/ecs-tasks/staging/mandala-ingest-kmassets-json-ingest
       - terraform init -no-color
       - terraform apply -no-color -auto-approve
-      - cd $CODEBUILD_SRC_DIR/terraform-infrastructure/mandala/ecs-tasks/staging/mandala-kmterms-solr-update
+      - cd $CODEBUILD_SRC_DIR/terraform-infrastructure/mandala/ecs-tasks/staging/mandala-ingest-kmterms-json-ingest
       - terraform init -no-color
       - terraform apply -no-color -auto-approve
 
